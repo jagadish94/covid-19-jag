@@ -1,0 +1,21 @@
+<html ng-app="myApp">
+    <h1>COVID19</h1>
+    <script type="text/javascript"  src="../public/js/angular.min.js"></script>
+      <br/>
+  <br/>
+   <body ng-controller="myCtrl">
+     
+   <h4>  Total confirmed :<span ng-bind="confirmed"></span> </h4>
+   <h4>  Total recovered :<span  ng-bind="confirmed"></span> </h4>
+    <h4> Total Deaths : <span ng-bind="confirmed"></span> </h4>
+    <br/>
+
+    select a country
+    <select ng-model="selectedName" ng-options="x for x in names">
+    </select>
+   </body>
+   
+
+   <script type="text/javascript"  src="../public/js/app.js"></script>
+   <link href="../public/css/bootstrap.min.css" rel="stylesheet">
+</html>

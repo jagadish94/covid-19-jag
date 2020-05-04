@@ -1,0 +1,144 @@
+<html ng-app="myApp">
+  <div class="jumbotron" style="height: 30px; text-align: center;">    <h2>COVID-19 Live Updates</h2> </div>
+ 
+    <script type="text/javascript"  src="./js/angular.min.js"></script>
+    
+  
+      <br/>
+     
+      
+      <script type="text/javascript"  src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <br/>
+   <body ng-controller="myCtrl">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Total confirmed Cases</h5>
+            <h3> <span  >{{confirmed | number :0}}</span></h3>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Total active Cases</h5>
+            <h3> <span >{{active| number:0}}</span></h3>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Total recovered Cases</h5>
+            <h3> <span >{{recovered| number:0}}</span></h3>
+       
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card text-white bg-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Total deaths Cases</h5>
+            <h3> <span>{{deaths| number:0}}</span> </h3>
+       
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--    <h4>  Total confirmed :<span ng-bind="confirmed"></span> </h4>
+   <h4>  Total recovered :<span  ng-bind="recovered"></span> </h4>
+    <h4> Total Deaths : <span ng-bind="deaths"></span> </h4>
+    <br/>
+--> 
+<br>
+<br/>
+<div class="container">
+<div class="row" >
+       <h3 style="color:gray">  select country </h3>
+    <select  id="mySelect"  ng-change="dropDownSelect1(selectedName)" ng-model="selectedName" ng-options="x for x in names">
+    </select>
+   </div>
+  </div>
+  
+    <br/>
+    
+    <div class="row" ng-if="selectedName!=null">
+      <div class="col-sm-3">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{selectedName}} confirmed Cases</h5>
+            <h3> <span>{{confirmed1 | number:0}}</span></h3>
+         
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{selectedName}} active Cases</h5>
+            <h3> <span >{{active1 | number:0}}</span></h3>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{selectedName}} recovered Cases</h5>
+            <h3> <span>{{recovered1 | number:0}}</span></h3>
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card text-white bg-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{selectedName}} deaths Cases</h5>
+            <h3> <span>{{deaths1 | number :0}}</span> </h3>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    
+    
+    <table class="table table-bordered" >
+
+      <thead> 
+        <tr ng-if = "finalinfo!=null" ng-style="{color: info.Impact>='3' ? '#F44336' : 'black'}">
+          <th scope="col">last Updated Time</th>
+          <th scope="col">state</th>
+          <th scope="col">confirmed</th>
+          <th scope="col">active</th>
+          <th scope="col">recovered</th>
+          <th scope="col">deaths</th>
+      
+        </tr>
+      </thead>
+      <tbody >
+        <tr ng-repeat="info in finalinfo" >
+          <td>{{info.lastupdatedtime}}</td>
+          <td>{{info.state}}</td>
+          <td>{{info.confirmed}}</td>
+          <td>{{info.active}}</td>
+          <td>{{info.recovered}}</td>
+          <td>{{info.deaths}}</td>
+        </tr>
+ 
+        
+       
+      </tbody>
+    </table>
+    <canvas id="myChart" width="400px" height="400px"></canvas>
+   </body>
+  
+
+   <script type="text/javascript"  src="./js/app.js"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</html>
