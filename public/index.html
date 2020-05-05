@@ -1,4 +1,10 @@
 <html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  </head>
   <div class="jumbotron" style="height: 30px; text-align: center;">    <h2>COVID-19 Live Updates</h2> </div>
  
     <script type="text/javascript"  src="./js/angular.min.js"></script>
@@ -70,7 +76,7 @@
         <div class="card text-white bg-warning mb-3">
           <div class="card-body">
             <h5 class="card-title">{{selectedName}} confirmed Cases</h5>
-            <h3> <span>{{confirmed1 | number:0}}</span></h3>
+            <h3 id =confirmed1> <span>{{confirmed1 | number:0}}</span></h3>
          
           </div>
         </div>
@@ -106,7 +112,11 @@
     <br/>
     <br/>
     
-    
+    <div class="container">
+      <div id="chartReport">
+      <canvas id="myChart"></canvas>
+    </div>
+    </div>
     <table class="table table-bordered" >
 
       <thead> 
@@ -134,10 +144,11 @@
        
       </tbody>
     </table>
-    <canvas id="myChart" width="400px" height="400px"></canvas>
+   
+
    </body>
   
-
+  
    <script type="text/javascript"  src="./js/app.js"></script>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
